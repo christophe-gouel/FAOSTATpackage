@@ -18,7 +18,7 @@ translateCountryCode = function (data, from, to, oldCode)
         oldCode = from
     if (from != to) {
         codeTrans = FAOcountryProfile[which(FAOcountryProfile[,
-            from] %in% data[, oldCode]), c(from, to)]
+            from] %in% data[[oldCode]]), c(from, to)]
         trans.df = merge(x = codeTrans, y = data, by.x = from,
             by.y = oldCode, all.y = TRUE)
         if (any(is.na(trans.df[, to]))) {
